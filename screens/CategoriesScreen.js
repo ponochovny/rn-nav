@@ -1,11 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+
+import { CATEGORIES } from '../data/dummy-data';
+
+const renderGridItem = (itemData) => {
+	return (
+		<View>
+			<Text>{itemData.item.title}</Text>
+		</View>
+	);
+};
 
 const CategoriesScreen = (props) => {
 	return (
-		<View style={styles.screen}>
-			<Text>The Categories Screen!</Text>
-		</View>
+		<FlatList
+			data={CATEGORIES}
+			renderItem={renderGridItem}
+			numColumns={2}
+		/>
 	);
 };
 
